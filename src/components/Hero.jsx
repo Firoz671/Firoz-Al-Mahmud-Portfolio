@@ -1,143 +1,173 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
 import { portfolioData } from '../data';
+import { useRef } from 'react';
 
 const Hero = () => {
     const { name, title, github, linkedin } = portfolioData.personalInfo;
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start start", "end start"]
+    });
+
+    // Parallax effect on scroll
+    const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+    const opacityBg = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-            {/* Animated Background Elements */}
-            <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob"></div>
-            <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-secondary/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute bottom-1/4 left-1/2 w-72 h-72 bg-pink-500/20 rounded-full mix-blend-screen filter blur-[100px] animate-blob" style={{ animationDelay: '4s' }}></div>
-
-            <div className="w-11/12 mx-auto px-6 sm:px-8 z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+        <section ref={ref} id="home" className="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden">
+            <motion.div style={{ y: yBg, opacity: opacityBg }} className="w-full max-w-7xl mx-auto px-6 lg:px-8 z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
                 {/* Text Content */}
-                <div className="text-center lg:text-left flex-1">
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                <div className="text-center lg:text-left flex-1 order-2 lg:order-1 mt-12 lg:mt-0">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-primary font-medium tracking-wide mb-4"
+                        transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        HELLO, WORLD! I AM
-                    </motion.p>
+                        <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-sky-300 font-semibold text-sm mb-6 border border-primary/20 dark:border-primary/30 shadow-none dark:shadow-[0_0_15px_rgba(14,165,233,0.15)] uppercase tracking-wider">
+                            Frontend Developer | React Specialist
+                        </span>
+                    </motion.div>
 
                     <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight"
+                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                        className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]"
                     >
-                        {name}
+                        Hi, I'm <span className="text-gradient block mt-2">{name.split(' ')[0]}</span>
                     </motion.h1>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        className="text-2xl md:text-3xl font-bold text-slate-300 mb-8 h-12"
+                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                        className="text-xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-6 h-12 flex items-center justify-center lg:justify-start"
                     >
-                        <span className="mr-2">I am a</span>
-                        <span className="text-gradient">
+                        <span className="mr-2">I build</span>
+                        <span className="text-primary dark:text-sky-400 border-b-2 border-primary/30">
                             <Typewriter
-                                words={[title, 'React Enthusiast', 'Web Developer']}
+                                words={['Scalable Web Apps', 'Interactive UIs', 'Modern Experiences', 'Premium Portfolios']}
                                 loop={true}
                                 cursor
-                                cursorStyle='_'
-                                typeSpeed={70}
-                                deleteSpeed={50}
-                                delaySpeed={1000}
+                                cursorStyle='|'
+                                typeSpeed={60}
+                                deleteSpeed={40}
+                                delaySpeed={1500}
                             />
                         </span>
                     </motion.div>
 
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                        className="max-w-2xl mx-auto lg:mx-0 text-slate-400 mb-10 text-lg leading-relaxed"
+                        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                        className="max-w-2xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-400 mb-10 text-lg leading-relaxed font-medium"
                     >
-                        {portfolioData.about.description}
+                        I engineer robust, high-performance web applications using React and modern frontend ecosystems. Focused on delivering seamless user experiences and maintainable, scalable code architectures.
                     </motion.p>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.8 }}
+                        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                         className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
                     >
-                        <a href="#projects" className="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-sky-400 transition-colors shadow-lg shadow-primary/30 w-full sm:w-auto text-center">
-                            View Work
+                        <a href="#projects" className="group relative px-8 py-4 bg-primary text-white rounded-full font-bold overflow-hidden shadow-[0_4px_15px_rgba(14,165,233,0.2)] hover:shadow-[0_4px_25px_rgba(14,165,233,0.4)] transition-all w-full sm:w-auto text-center flex items-center justify-center gap-2">
+                            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
+                            <span>View My Work</span>
+                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </a>
-                        <a href="/FirozAlMahmud.pdf" download className="px-8 py-4 glass-card text-white rounded-full font-semibold flex items-center justify-center gap-2 w-full sm:w-auto hover:bg-white/10 transition-colors border-primary/30">
-                            <Download size={20} /> Download Resume
+                        <a href="/FirozAlMahmud.pdf" download className="group px-8 py-4 glass-card text-slate-800 dark:text-white rounded-full font-semibold flex items-center justify-center gap-2 w-full sm:w-auto hover:bg-slate-100 dark:hover:bg-white/10 transition-all border-slate-300 dark:border-primary/30">
+                            <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
+                            <span>Download Resume</span>
                         </a>
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 1 }}
-                        className="flex items-center justify-center lg:justify-start gap-6 mt-12"
+                        transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+                        className="flex items-center justify-center lg:justify-start gap-4 mt-12"
                     >
-                        <a href={github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors p-3 glass-card rounded-full hover:scale-110">
-                            <Github size={24} />
+                        <a href={github} target="_blank" rel="noreferrer" aria-label="Github" className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors p-3 glass-card rounded-full hover:-translate-y-1 hover:shadow-lg">
+                            <Github size={22} />
                         </a>
-                        <a href={linkedin} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-[#0a66c2] transition-colors p-3 glass-card rounded-full hover:scale-110">
-                            <Linkedin size={24} />
+                        <a href={linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-slate-500 dark:text-slate-400 hover:text-[#0a66c2] transition-colors p-3 glass-card rounded-full hover:-translate-y-1 hover:shadow-lg">
+                            <Linkedin size={22} />
                         </a>
-                        <a href="#contact" className="text-slate-400 hover:text-red-400 transition-colors p-3 glass-card rounded-full hover:scale-110">
-                            <Mail size={24} />
+                        <a href="#contact" aria-label="Email" className="text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors p-3 glass-card rounded-full hover:-translate-y-1 hover:shadow-lg">
+                            <Mail size={22} />
                         </a>
                     </motion.div>
                 </div>
 
-                {/* Profile Image */}
+                {/* Profile Image / Abstract Visual */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="flex-1 flex justify-center lg:justify-end mt-12 lg:mt-0"
+                    initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 100 }}
+                    className="flex-1 order-1 lg:order-2 flex justify-center w-full max-w-md lg:max-w-none relative mt-8 lg:mt-0"
                 >
-                    {/* Perfect circle aspect ratio */}
-                    <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[400px] lg:h-[400px] flex items-center justify-center">
-                        {/* Glow effect */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-full animate-pulse blur-3xl opacity-40"></div>
+                    <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[450px] lg:h-[450px] flex items-center justify-center">
+                        {/* Premium Glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-indigo-500 rounded-[2rem] sm:rounded-[3rem] rotate-6 opacity-20 dark:opacity-40 blur-2xl animate-pulse"></div>
+                        <div className="absolute inset-0 bg-gradient-to-tl from-purple-500 to-primary rounded-[2rem] sm:rounded-[3rem] -rotate-6 opacity-20 dark:opacity-40 blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-                        {/* Image wrapper */}
-                        <div className="relative w-full h-full rounded-full border-[6px] border-slate-800 shadow-2xl p-2 bg-slate-900 flex items-center justify-center overflow-hidden">
+                        {/* Image / Shape wrapper */}
+                        <motion.div
+                            whileHover={{ scale: 1.02, rotate: 2 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="relative w-full h-full rounded-[2rem] sm:rounded-[3rem] border border-slate-200 dark:border-white/10 bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl p-3 shadow-2xl overflow-hidden glass group flex items-center justify-center text-slate-300"
+                        >
                             <img
                                 src="/profile.jpg"
                                 alt={name}
-                                className="w-full h-full object-cover rounded-full"
-                                onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=Firoz+Al+Mahmud&background=0D8ABC&color=fff&size=512"; }}
+                                className="w-full h-full object-cover rounded-[1.5rem] sm:rounded-[2.5rem] grayscale group-hover:grayscale-0 transition-all duration-700"
+                                onError={(e) => {
+                                    e.target.onerror = null;
+                                    e.target.src = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000";
+                                }}
                             />
-                        </div>
+                            {/* Overlay Gradient */}
+                            <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[2.5rem] bg-gradient-to-t from-slate-900/60 dark:from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-500"></div>
+                        </motion.div>
+
                         {/* Floating Badges */}
                         <motion.div
-                            animate={{ y: [-10, 10, -10] }}
-                            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            className="absolute -top-4 -right-4 glass-card px-4 py-2 rounded-xl border border-primary/30 z-20 flex items-center gap-2 shadow-xl shadow-primary/20"
+                            animate={{ y: [-15, 15, -15] }}
+                            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                            className="absolute -top-6 -right-4 glass-card px-5 py-3 rounded-2xl border border-slate-200 dark:border-white/20 z-20 flex items-center gap-3 shadow-xl"
                         >
-                            <span className="text-2xl">💻</span>
-                            <span className="text-xs font-bold text-white">React Dev</span>
+                            <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 text-xl">
+                                ⚛️
+                            </div>
+                            <div>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">Specialist</p>
+                                <p className="text-sm font-bold text-slate-800 dark:text-white">React.js</p>
+                            </div>
                         </motion.div>
+
                         <motion.div
-                            animate={{ y: [10, -10, 10] }}
-                            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                            className="absolute bottom-10 -left-8 glass-card px-4 py-2 rounded-xl border border-secondary/30 z-20 flex items-center gap-2 shadow-xl shadow-secondary/20"
+                            animate={{ y: [15, -15, 15] }}
+                            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+                            className="absolute bottom-10 -left-6 lg:-left-12 glass-card px-5 py-3 rounded-2xl border border-slate-200 dark:border-white/20 z-20 flex items-center gap-3 shadow-xl"
                         >
-                            <span className="text-2xl">🚀</span>
-                            <span className="text-xs font-bold text-white">Frontend</span>
+                            <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-400 text-xl">
+                                🚀
+                            </div>
+                            <div>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">Focus</p>
+                                <p className="text-sm font-bold text-slate-800 dark:text-white">Performance</p>
+                            </div>
                         </motion.div>
                     </div>
                 </motion.div>
 
-            </div>
+            </motion.div>
         </section>
     );
 };
