@@ -28,7 +28,7 @@ Make sure you have Node.js (v16+) and npm installed on your machine.
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Firoz671/portfolio.git
+   git clone [https://github.com/Firoz671/Firoz-Al-Mahmud-Portfolio.git](https://github.com/Firoz671/Firoz-Al-Mahmud-Portfolio.git)
    cd portfolio
    ```
 
