@@ -161,6 +161,10 @@ const Contact = () => {
                                     <Send size={20} className="animate-pulse" />
                                 </button>
                             </MagneticWrapper>
+                            <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-4 font-medium flex items-center justify-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                Typically replies within 24 hours
+                            </p>
                         </form>
                     </motion.div>
                 </div>

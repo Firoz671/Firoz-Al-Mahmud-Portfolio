@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { useGitHubRepos } from '../hooks/useGitHubRepos';
-import { ExternalLink, Star, GitFork } from 'lucide-react';
+import { ExternalLink, Star, GitFork, ArrowRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import ProjectModal from './ProjectModal';
 
-const ProjectCard = ({ repo, getLanguageColor, variants }) => {
+const ProjectCard = ({ repo, getLanguageColor, variants, onClick }) => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -29,7 +31,7 @@ const ProjectCard = ({ repo, getLanguageColor, variants }) => {
     };
 
     return (
-        <motion.div variants={variants} className="relative z-10" style={{ perspective: 1000 }}>
+        <motion.div variants={variants} className="relative z-10 cursor-pointer" style={{ perspective: 1000 }} onClick={() => onClick(repo)}>
             <motion.div
                 style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
                 onMouseMove={handleMouseMove}
@@ -45,12 +47,12 @@ const ProjectCard = ({ repo, getLanguageColor, variants }) => {
                         <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800/80 flex items-center justify-center text-slate-800 dark:text-white shadow-[0_5px_15px_rgba(0,0,0,0.05)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] group-hover:-translate-y-1 group-hover:shadow-[0_10px_20px_rgba(14,165,233,0.2)] transition-all duration-300 border border-slate-100 dark:border-slate-700/50">
                             <FaGithub size={28} />
                         </div>
-                        <a href={repo.html_url} target="_blank" rel="noreferrer" title="View Source" className="text-slate-400 dark:text-slate-500 hover:text-primary dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 p-2.5 rounded-full transition-all duration-300">
-                            <ExternalLink size={22} />
-                        </a>
+                        <div className="flex bg-slate-100 dark:bg-slate-800/80 items-center justify-center w-10 h-10 rounded-full opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 text-primary dark:text-sky-400">
+                            <ArrowRight size={18} className="-rotate-45" />
+                        </div>
                     </div>
 
-                    <div className="flex-1 w-full">
+                    <div className="flex-1 w-full mt-2">
                         <h3 className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary transition-colors tracking-wide mb-3 line-clamp-1 font-heading">
                             {repo.name.replace(/-/g, ' ')}
                         </h3>
@@ -89,6 +91,7 @@ const ProjectCard = ({ repo, getLanguageColor, variants }) => {
 
 const Projects = () => {
     const { repos, loading, error } = useGitHubRepos('Firoz671');
+    const [selectedProject, setSelectedProject] = useState(null);
 
     // Language color map for tags
     const getLanguageColor = (lang) => {
@@ -136,11 +139,11 @@ const Projects = () => {
                 >
                     <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-sky-300 font-semibold text-sm mb-4 border border-primary/20 tracking-wider uppercase">My Portfolio</span>
                     <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 font-heading">
-                        Featured <span className="text-gradient">Projects</span>
+                        Featured <span className="text-gradient">Case Studies</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
                     <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg font-medium">
-                        Highlighting recent open-source repositories and personal experiments fetched live from my GitHub.
+                        Click on any project to dive deep into the architecture, challenges overcome, and performance metrics.
                     </p>
                 </motion.div>
 
@@ -189,10 +192,22 @@ const Projects = () => {
                         ))
                     ) : (
                         repos.map((repo) => (
-                            <ProjectCard key={repo.id} repo={repo} getLanguageColor={getLanguageColor} variants={cardVariants} />
+                            <ProjectCard
+                                key={repo.id}
+                                repo={repo}
+                                getLanguageColor={getLanguageColor}
+                                variants={cardVariants}
+                                onClick={setSelectedProject}
+                            />
                         ))
                     )}
                 </motion.div>
+
+                <ProjectModal
+                    project={selectedProject}
+                    isOpen={!!selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                />
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

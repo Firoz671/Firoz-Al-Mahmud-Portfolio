@@ -1,12 +1,14 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
-import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, ArrowRight, FileText } from 'lucide-react';
 import { portfolioData } from '../data';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
+import ResumeModal from './ResumeModal';
 
 const Hero = () => {
     const { name, title, github, linkedin } = portfolioData.personalInfo;
     const ref = useRef(null);
+    const [isResumeOpen, setIsResumeOpen] = useState(false);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"]
@@ -26,9 +28,17 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6"
                     >
-                        <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-sky-300 font-semibold text-sm mb-6 border border-primary/20 dark:border-primary/30 shadow-none dark:shadow-[0_0_15px_rgba(14,165,233,0.15)] uppercase tracking-wider">
-                            Frontend Developer | React Specialist
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm font-semibold tracking-wide">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                            </span>
+                            Available for Opportunities
+                        </div>
+                        <span className="hidden sm:inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-sky-300 font-semibold text-sm border border-primary/20 dark:border-primary/30 uppercase tracking-wider">
+                            Frontend Specialist
                         </span>
                     </motion.div>
 
@@ -50,7 +60,7 @@ const Hero = () => {
                         <span className="mr-2">I build</span>
                         <span className="text-primary dark:text-sky-400 border-b-2 border-primary/30">
                             <Typewriter
-                                words={['Scalable Web Apps', 'Interactive UIs', 'Modern Experiences', 'Premium Portfolios']}
+                                words={['Scalable Web Apps', 'Interactive UIs', 'Award-Winning Experiences', 'High-Performance Systems']}
                                 loop={true}
                                 cursor
                                 cursorStyle='|'
@@ -65,9 +75,9 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                        className="max-w-2xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-400 mb-10 text-lg leading-relaxed font-medium"
+                        className="max-w-2xl mx-auto lg:mx-0 text-slate-600 dark:text-slate-400 mb-10 text-lg sm:text-xl leading-relaxed font-medium"
                     >
-                        I engineer robust, high-performance web applications using React and modern frontend ecosystems. Focused on delivering seamless user experiences and maintainable, scalable code architectures.
+                        Bridging the gap between <strong className="text-slate-800 dark:text-slate-200">limitless design</strong> and <strong className="text-slate-800 dark:text-slate-200">flawless engineering</strong>. I architect pixel-perfect, accessible, and high-performance digital experiences that drive business value and captivate users.
                     </motion.p>
 
                     <motion.div
@@ -81,10 +91,10 @@ const Hero = () => {
                             <span>View My Work</span>
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </a>
-                        <a href="/FirozAlMahmud.pdf" download className="group px-8 py-4 glass-card text-slate-800 dark:text-white rounded-full font-semibold flex items-center justify-center gap-2 w-full sm:w-auto hover:bg-slate-100 dark:hover:bg-white/10 transition-all border-slate-300 dark:border-primary/30">
-                            <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
-                            <span>Download Resume</span>
-                        </a>
+                        <button onClick={() => setIsResumeOpen(true)} className="group px-8 py-4 glass-card text-slate-800 dark:text-white rounded-full font-semibold flex items-center justify-center gap-2 w-full sm:w-auto hover:bg-slate-100 dark:hover:bg-white/10 transition-all border-slate-300 dark:border-primary/30">
+                            <FileText size={18} className="group-hover:-translate-y-1 transition-transform" />
+                            <span>View Résumé</span>
+                        </button>
                     </motion.div>
 
                     <motion.div
@@ -126,6 +136,7 @@ const Hero = () => {
                             <img
                                 src="/profile.jpg"
                                 alt={name}
+                                loading="lazy"
                                 className="w-full h-full object-cover rounded-[1.5rem] sm:rounded-[2.5rem] grayscale group-hover:grayscale-0 transition-all duration-700"
                                 onError={(e) => {
                                     e.target.onerror = null;
@@ -168,6 +179,7 @@ const Hero = () => {
                 </motion.div>
 
             </motion.div>
+            <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
         </section>
     );
 };
