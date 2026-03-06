@@ -3,7 +3,7 @@
 A modern, highly responsive, and meticulously designed personal portfolio website built to showcase my technical skills, projects, and professional background.
 
 ## 🚀 Live Demo
-*(Add your deployment link here)*
+*(Not Yet Deployed)*
 
 ## 🔮 Features
 - **Modern UI/UX**: Glassmorphism design, neon accents, and dark mode by default.
@@ -47,4 +47,4 @@ Make sure you have Node.js (v16+) and npm installed on your machine.
 - **LinkedIn**: [Md. Firoz Al Mahmud](https://www.linkedin.com/in/firoz-al-mahmud/)
 - **GitHub**: [@Firoz671](https://github.com/Firoz671)
 
-Made with ❤️ by Md. Firoz Al Mahmud
+Made by Md. Firoz Al Mahmud ❤️
