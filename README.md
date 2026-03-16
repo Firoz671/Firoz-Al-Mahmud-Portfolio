@@ -3,7 +3,7 @@
 A modern, highly responsive, and meticulously designed personal portfolio website built to showcase my technical skills, projects, and professional background.
 
 ## 🚀 Live Demo
-*(Not Yet Deployed)*
+*(https://firoz-al-mahmud-portfolio.vercel.app/)*
 
 ## 🔮 Features
 - **Modern UI/UX**: Glassmorphism design, neon accents, and dark mode by default.
