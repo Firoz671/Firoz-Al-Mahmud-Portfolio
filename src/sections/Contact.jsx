@@ -40,10 +40,10 @@ const Contact = () => {
     const { email, phone, location } = portfolioData.personalInfo;
 
     return (
-        <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/50 transition-colors duration-500">
+        <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/50  transition-colors duration-500">
             {/* Background Orbs */}
-            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/5 dark:bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/5 dark:bg-secondary/10 blur-[100px] rounded-full pointer-events-none"></div>
+            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/5  blur-[100px] rounded-full pointer-events-none"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/5  blur-[100px] rounded-full pointer-events-none"></div>
 
             <div className="w-11/12 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <motion.div
@@ -52,12 +52,12 @@ const Contact = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-20"
                 >
-                    <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-sky-300 font-bold text-sm mb-4 tracking-wider uppercase border border-primary/20">Connect</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 font-heading">
+                    <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10  text-primary  font-bold text-sm mb-4 tracking-wider uppercase border border-primary/20">Connect</span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900  mb-6 font-heading">
                         Get In <span className="text-gradient">Touch</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
-                    <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg font-medium">
+                    <p className="text-slate-600  max-w-2xl mx-auto text-lg font-medium">
                         Have a project in mind or just want to say hi? Feel free to connect!
                     </p>
                 </motion.div>
@@ -71,8 +71,8 @@ const Contact = () => {
                         className="space-y-10"
                     >
                         <div>
-                            <h3 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight font-heading">Let's build something awesome together!</h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed font-medium">
+                            <h3 className="text-3xl font-extrabold text-slate-900  mb-4 tracking-tight font-heading">Let's build something awesome together!</h3>
+                            <p className="text-slate-600  text-lg leading-relaxed font-medium">
                                 I am currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                             </p>
                         </div>
@@ -84,17 +84,17 @@ const Contact = () => {
                                 { icon: MapPin, label: 'Location', value: location, link: null, color: 'text-emerald-500', bgHover: 'group-hover:bg-emerald-500' }
                             ].map((info, index) => (
                                 <MagneticWrapper key={index} className="flex items-center gap-6 group cursor-pointer w-max">
-                                    <div className={`w-14 h-14 bg-white dark:bg-slate-800/80 backdrop-blur-md rounded-2xl flex items-center justify-center ${info.color} shadow-[0_5px_15px_rgba(0,0,0,0.05)] dark:shadow-[0_5px_15px_rgba(0,0,0,0.2)] border border-slate-100 dark:border-slate-700/50 ${info.bgHover} group-hover:text-white group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-300 pointer-events-none`}>
+                                    <div className={`w-14 h-14 bg-white  backdrop-blur-md rounded-2xl flex items-center justify-center ${info.color} shadow-[0_5px_15px_rgba(0,0,0,0.05)]  border border-slate-100  ${info.bgHover} group-hover:text-white group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-300 pointer-events-none`}>
                                         <info.icon size={24} />
                                     </div>
                                     <div>
-                                        <p className="text-sm text-slate-500 dark:text-slate-400 font-bold tracking-wide uppercase mb-1 pointer-events-none">{info.label}</p>
+                                        <p className="text-sm text-slate-500  font-bold tracking-wide uppercase mb-1 pointer-events-none">{info.label}</p>
                                         {info.link ? (
-                                            <a href={info.link} className="text-xl font-bold text-slate-900 dark:text-white hover:text-primary dark:hover:text-primary transition-colors inline-block pointer-events-auto">
+                                            <a href={info.link} className="text-xl font-bold text-slate-900  hover:text-primary  transition-colors inline-block pointer-events-auto">
                                                 {info.value}
                                             </a>
                                         ) : (
-                                            <p className="text-xl font-bold text-slate-900 dark:text-white pointer-events-none">{info.value}</p>
+                                            <p className="text-xl font-bold text-slate-900  pointer-events-none">{info.value}</p>
                                         )}
                                     </div>
                                 </MagneticWrapper>
@@ -107,7 +107,7 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="bg-white/80 dark:bg-slate-800/40 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] border border-slate-200 dark:border-slate-700/50 shadow-xl relative overflow-hidden"
+                        className="bg-white/80 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.03)] relative overflow-hidden"
                     >
                         {/* Shimmer effect line */}
                         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50 bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite]"></div>
@@ -115,54 +115,55 @@ const Contact = () => {
                         <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="group">
-                                    <label htmlFor="name" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 group-focus-within:text-primary transition-colors">Your Name</label>
+                                    <label htmlFor="name" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Your Name</label>
                                     <input
                                         type="text"
                                         id="name"
-                                        className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                                        className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
                                         placeholder="John Doe"
                                     />
                                 </div>
                                 <div className="group">
-                                    <label htmlFor="email" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 group-focus-within:text-primary transition-colors">Your Email</label>
+                                    <label htmlFor="email" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Your Email</label>
                                     <input
                                         type="email"
                                         id="email"
-                                        className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                                        className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
                                         placeholder="john@example.com"
                                     />
                                 </div>
                             </div>
                             <div className="group">
-                                <label htmlFor="subject" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 group-focus-within:text-primary transition-colors">Subject</label>
+                                <label htmlFor="subject" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Subject</label>
                                 <input
                                     type="text"
                                     id="subject"
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                                    className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
                                     placeholder="Project Inquiry"
                                 />
                             </div>
                             <div className="group">
-                                <label htmlFor="message" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 group-focus-within:text-primary transition-colors">Message</label>
+                                <label htmlFor="message" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Message</label>
                                 <textarea
                                     id="message"
                                     rows="5"
-                                    className="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/50 rounded-xl px-5 py-4 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none shadow-inner"
+                                    className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none shadow-inner"
                                     placeholder="Hello, I'd like to talk about..."
                                 ></textarea>
                             </div>
 
                             <MagneticWrapper>
-                                <button
+                                <motion.button
+                                    whileTap={{ scale: 0.95 }}
                                     type="submit"
-                                    className="w-full py-4.5 bg-gradient-to-r from-primary to-sky-500 text-white rounded-xl font-bold flex items-center justify-center gap-3 hover:shadow-[0_10px_30px_rgba(14,165,233,0.3)] transition-all duration-300 hover:scale-[1.02]"
+                                    className="w-full py-4 bg-gradient-to-r from-primary to-sky-500 text-white rounded-xl font-bold flex items-center justify-center gap-3 hover:shadow-[0_10px_30px_rgba(14,165,233,0.3)] transition-all duration-300 hover:scale-[1.02] interactive-hover"
                                 >
                                     <span>Send Message</span>
                                     <Send size={20} className="animate-pulse" />
-                                </button>
+                                </motion.button>
                             </MagneticWrapper>
-                            <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-4 font-medium flex items-center justify-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <p className="text-center text-xs text-slate-500  mt-4 font-medium flex items-center justify-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-[blob_2s_infinite]"></span>
                                 Typically replies within 24 hours
                             </p>
                         </form>

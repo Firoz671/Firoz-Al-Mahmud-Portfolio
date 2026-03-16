@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Emergency Hotline Web",
+    "description": "A simple and mini single page website for emergency hotline service.",
+    "technologies": [
+      "Vanilla JS",
+      "Tailwind CSS"
+    ],
+    "image": "https://i.ibb.co/DxtP0WN/image.png",
+    "demoLink": "https://firoz671.github.io/Emergency-Hotline-Web/",
+    "githubLink": "https://github.com/Firoz671/Emergency-Hotline-Web"
+  },
+  {
+    "id": 2,
+    "title": "VibeBooks",
+    "description": "A simple and mini single page website for book store.",
+    "technologies": [
+      "React.js",
+      "Tailwind CSS"
+    ],
+    "image": "https://i.ibb.co/R4SW98kt/image.png",
+    "demoLink": "https://regal-paprenjak-efd3fd.netlify.app/",
+    "githubLink": "https://github.com/Firoz671/book-store-web"
+  }
+]

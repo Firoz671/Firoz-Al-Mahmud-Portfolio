@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import InteractivePreview from './components/InteractivePreview';
-import Education from './components/Education';
-import StatsSection from './components/StatsSection';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { motion, useScroll, useSpring, useMotionValue } from 'framer-motion';
+import Navbar from './components/ui/Navbar';
+import Hero from './sections/Hero';
+import About from './sections/About';
+import Skills from './sections/Skills';
+import Projects from './sections/Projects';
+import Education from './sections/Education';
+import Impact from './sections/Impact';
+import Contact from './sections/Contact';
+import Footer from './sections/Footer';
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -20,16 +18,31 @@ function App() {
     restDelta: 0.001
   });
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // High-performance cursor tracking using Framer Motion values
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.2 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const mouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      cursorX.set(e.clientX - 8);
+      cursorY.set(e.clientY - 8);
     };
 
     const handleMouseOver = (e) => {
-      if (e.target.tagName.toLowerCase() === 'a' || e.target.tagName.toLowerCase() === 'button' || e.target.closest('a') || e.target.closest('button')) {
+      // Check if hovering over interactive elements
+      if (
+        e.target.tagName.toLowerCase() === 'a' ||
+        e.target.tagName.toLowerCase() === 'button' ||
+        e.target.closest('a') ||
+        e.target.closest('button') ||
+        e.target.classList.contains('interactive-hover')
+      ) {
         setIsHovering(true);
       } else {
         setIsHovering(false);
@@ -43,28 +56,10 @@ function App() {
       window.removeEventListener("mousemove", mouseMove);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, []);
-
-  const variants = {
-    default: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      scale: 1,
-      opacity: 0.5,
-      transition: { type: "tween", ease: "backOut", duration: 0.1 }
-    },
-    hover: {
-      x: mousePosition.x - 16,
-      y: mousePosition.y - 16,
-      scale: 2.5,
-      opacity: 0.2,
-      backgroundColor: "#0ea5e9", // primary
-      transition: { type: "tween", ease: "backOut", duration: 0.1 }
-    }
-  };
+  }, [cursorX, cursorY]);
 
   return (
-    <div className="relative min-h-screen bg-slate-50 dark:bg-darker text-slate-900 dark:text-slate-200 selection:bg-cyan-500 selection:text-white font-sans antialiased overflow-x-hidden transition-colors duration-500">
+    <div className="relative min-h-screen font-sans antialiased transition-colors duration-500">
 
       {/* Scroll Progress Indicator */}
       <motion.div
@@ -72,21 +67,29 @@ function App() {
         style={{ scaleX }}
       />
 
-      {/* Custom Cursor (Hidden on mobile) */}
+      {/* Premium Custom Cursor (Hidden on mobile) */}
       <motion.div
-        variants={variants}
-        animate={isHovering ? "hover" : "default"}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-primary dark:border-sky-400 pointer-events-none z-[999] hidden md:block backdrop-invert mix-blend-difference"
+        style={{
+          x: cursorXSpring,
+          y: cursorYSpring,
+        }}
+        animate={{
+          scale: isHovering ? 3 : 1,
+          opacity: isHovering ? 0.08 : 0.8,
+          backgroundColor: "#0f172a"
+        }}
+        transition={{ type: "spring", stiffness: 400, damping: 25, mass: 0.2 }}
+        className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-[999] hidden md:block"
       />
 
-      {/* Subtle Grain/Noise Overlay */}
-      <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] dark:opacity-[0.05]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
+      {/* Subtle Grain/Noise Overlay for depth */}
+      <div className="noise-overlay"></div>
 
-      {/* Abstract Background Elements */}
+      {/* Abstract Background Elements (Mesh Gradients) */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/20 dark:bg-primary/10 mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob"></div>
-        <div className="absolute top-[20%] right-[-10%] w-[35%] h-[35%] rounded-full bg-secondary/20 dark:bg-secondary/10 mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-cyan-500/20 dark:bg-cyan-500/10 mix-blend-multiply dark:mix-blend-screen filter blur-[100px] animate-blob animation-delay-4000"></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10  mix-blend-multiply  filter blur-[120px] animate-blob"></div>
+        <div className="absolute top-[20%] right-[-10%] w-[35%] h-[35%] rounded-full bg-secondary/10  mix-blend-multiply  filter blur-[120px] animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-cyan-500/10  mix-blend-multiply  filter blur-[120px] animate-blob animation-delay-4000"></div>
       </div>
 
       {/* Main Content */}
@@ -97,10 +100,7 @@ function App() {
           <About />
           <Skills />
           <Projects />
-          <InteractivePreview />
-          <Education />
-          <StatsSection />
-          <Testimonials />
+          <Impact />
           <Contact />
         </main>
         <Footer />

@@ -3,7 +3,7 @@ import { Target, Zap, ShieldCheck } from 'lucide-react';
 
 const About = () => {
     return (
-        <section id="about" className="py-24 relative overflow-hidden bg-white/50 dark:bg-slate-900/50 transition-colors duration-500">
+        <section id="about" className="py-24 relative overflow-hidden bg-white/50  transition-colors duration-500">
             <div className="w-11/12 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
                 {/* Header */}
@@ -13,8 +13,8 @@ const About = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-20"
                 >
-                    <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/10 dark:bg-secondary/20 text-secondary dark:text-purple-300 font-bold text-sm mb-4 tracking-wider uppercase border border-secondary/20">The Narrative</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 font-heading tracking-tight">
+                    <span className="inline-block py-1.5 px-4 rounded-full bg-secondary/10  text-secondary  font-bold text-sm mb-4 tracking-wider uppercase border border-secondary/20">The Narrative</span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900  mb-6 font-heading tracking-tight">
                         Why <span className="text-gradient">Hire Me?</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6 relative overflow-hidden">
@@ -46,7 +46,7 @@ const About = () => {
                                     hidden: { y: 20, opacity: 0 },
                                     visible: { y: 0, opacity: 1 }
                                 }}
-                                className="text-slate-600 dark:text-slate-400"
+                                className="text-slate-600 "
                             >
                                 {word}
                             </motion.span>
@@ -63,17 +63,17 @@ const About = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         className="lg:col-span-5 space-y-8"
                     >
-                        <div className="glass-card p-8 md:p-10 border border-slate-200 dark:border-white/10 rounded-3xl relative overflow-hidden">
+                        <div className="glass-premium p-8 md:p-10 rounded-3xl relative overflow-hidden interactive-hover">
                             {/* Decorative background glow */}
                             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
-                            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 dark:from-white dark:via-slate-300 dark:to-white font-heading mb-6">The Journey</h3>
-                            <div className="space-y-6 text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                            <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900    font-heading mb-6">The Journey</h3>
+                            <div className="space-y-6 text-slate-600  font-medium leading-relaxed">
                                 <p>
                                     My frontend journey started with a deep curiosity for how users interact with digital spaces. I realized early on that incredible design loses its impact if the engineering behind it is slow or inaccessible.
                                 </p>
                                 <p>
-                                    Today, my focus is laser-sharp: <strong className="text-slate-900 dark:text-slate-200">React ecosystems, micro-interactions, and enterprise-grade performance.</strong> I love transforming complex data systems into intuitive, accessible dashboards and captivating landing pages.
+                                    Today, my focus is laser-sharp: <strong className="text-slate-900 ">React ecosystems, micro-interactions, and enterprise-grade performance.</strong> I love transforming complex data systems into intuitive, accessible dashboards and captivating landing pages.
                                 </p>
                                 <p>
                                     When I'm not optimizing component renders, I'm analyzing top-tier SaaS interfaces or contributing to modern UI design systems.
@@ -118,13 +118,13 @@ const About = () => {
                             <motion.div
                                 key={idx}
                                 whileHover={{ y: -5 }}
-                                className={`glass p-8 rounded-[2rem] border ${item.border} hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 ${idx === 2 ? 'md:col-span-2' : ''}`}
+                                className={`glass-premium p-8 rounded-[2rem] hover:border-slate-300  transition-all duration-300 interactive-hover ${idx === 2 ? 'md:col-span-2' : ''}`}
                             >
                                 <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${item.bg} ${item.color}`}>
                                     <item.icon size={26} />
                                 </div>
-                                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3 font-heading">{item.title}</h4>
-                                <p className="text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+                                <h4 className="text-xl font-bold text-slate-900  mb-3 font-heading">{item.title}</h4>
+                                <p className="text-slate-600  font-medium leading-relaxed">
                                     {item.desc}
                                 </p>
                             </motion.div>

@@ -1,0 +1,15 @@
+
+> firoz-al-mahmud-portfolio@0.0.0 lint
+> eslint .
+
+
+D:\Firoz-Al-Mahmud-Portfolio\fix-shadows-3.js
+   1:12  error  'require' is not defined    no-undef
+   2:14  error  'require' is not defined    no-undef
+  19:22  error  '__dirname' is not defined  no-undef
+
+D:\Firoz-Al-Mahmud-Portfolio\src\sections\Impact.jsx
+  35:27  error  'Icon' is defined but never used  no-unused-vars
+
+✖ 4 problems (4 errors, 0 warnings)
+

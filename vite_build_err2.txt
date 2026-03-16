@@ -1,0 +1,88 @@
+﻿[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+[32mÔ£ô[39m 3 modules transformed.
+node.exe : 
+[31mÔ£ù[39m Build 
+failed in 111ms
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: ([31mÔ£ù[39m   
+  Build failed in 1    
+11ms:String) [], R    
+emoteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+[31merror during 
+build:
+[31m[@tailwindcss/vite
+:generate:build] 
+Cannot apply unknown 
+utility class `shadow-[
+0_4px_30px_rgba(0,`[31
+m
+file: [36mD:/Firoz-Al-
+Mahmud-Portfolio/src/in
+dex.css[31m
+    at 
+onInvalidCandidate (fil
+e:///D:/Firoz-Al-Mahmud
+-Portfolio/node_modules
+/tailwindcss/dist/chunk
+-L5IEUH3R.mjs:21:1511)
+    at $e (file:///D:/F
+iroz-Al-Mahmud-Portfoli
+o/node_modules/tailwind
+css/dist/chunk-L5IEUH3R
+.mjs:16:36740)
+    at file:///D:/Firoz
+-Al-Mahmud-Portfolio/no
+de_modules/tailwindcss/
+dist/chunk-L5IEUH3R.mjs
+:21:355
+    at Ar (file:///D:/F
+iroz-Al-Mahmud-Portfoli
+o/node_modules/tailwind
+css/dist/chunk-L5IEUH3R
+.mjs:3:1733)
+    at I (file:///D:/Fi
+roz-Al-Mahmud-Portfolio
+/node_modules/tailwindc
+ss/dist/chunk-L5IEUH3R.
+mjs:3:1377)
+    at Ce (file:///D:/F
+iroz-Al-Mahmud-Portfoli
+o/node_modules/tailwind
+css/dist/chunk-L5IEUH3R
+.mjs:21:172)
+    at Gi (file:///D:/F
+iroz-Al-Mahmud-Portfoli
+o/node_modules/tailwind
+css/dist/chunk-L5IEUH3R
+.mjs:38:294)
+    at async ao (file:/
+//D:/Firoz-Al-Mahmud-Po
+rtfolio/node_modules/ta
+ilwindcss/dist/chunk-L5
+IEUH3R.mjs:38:631)
+    at async vf (file:/
+//D:/Firoz-Al-Mahmud-Po
+rtfolio/node_modules/ta
+ilwindcss/dist/chunk-L5
+IEUH3R.mjs:38:1406)
+    at async uu (file:/
+//D:/Firoz-Al-Mahmud-Po
+rtfolio/node_modules/@t
+ailwindcss/node/dist/in
+dex.mjs:10:3458)[39m

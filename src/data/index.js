@@ -39,7 +39,7 @@ export const portfolioData = {
         ],
         tools: [
             { name: "Git", icon: FaGitAlt, color: "text-[#F05032]", hoverBorder: "hover:border-[#F05032]/50", hoverGlow: "hover:shadow-[0_0_15px_rgba(240,80,50,0.3)]", proficiency: 85 },
-            { name: "GitHub", icon: FaGithub, color: "text-slate-800 dark:text-white", hoverBorder: "hover:border-slate-800/50 dark:hover:border-white/50", hoverGlow: "hover:shadow-[0_0_15px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.3)]", proficiency: 90 },
+            { name: "GitHub", icon: FaGithub, color: "text-slate-800 ", hoverBorder: "hover:border-slate-800/50 ", hoverGlow: "hover:shadow-[0_0_15px_rgba(0,0,0,0.2)] ", proficiency: 90 },
             { name: "VS Code", icon: VscVscode, color: "text-[#007ACC]", hoverBorder: "hover:border-[#007ACC]/50", hoverGlow: "hover:shadow-[0_0_15px_rgba(0,122,204,0.3)]", proficiency: 95 },
             { name: "Postman", icon: SiPostman, color: "text-[#FF6C37]", hoverBorder: "hover:border-[#FF6C37]/50", hoverGlow: "hover:shadow-[0_0_15px_rgba(255,108,55,0.3)]", proficiency: 85 },
             { name: "Figma", icon: FaFigma, color: "text-[#F24E1E]", hoverBorder: "hover:border-[#F24E1E]/50", hoverGlow: "hover:shadow-[0_0_15px_rgba(242,78,30,0.3)]", proficiency: 80 },
