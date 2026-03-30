@@ -40,26 +40,20 @@ const Contact = () => {
     const { email, phone, location } = portfolioData.personalInfo;
 
     return (
-        <section id="contact" className="py-24 relative overflow-hidden bg-slate-50/50  transition-colors duration-500">
-            {/* Background Orbs */}
-            <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/5  blur-[100px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/5  blur-[100px] rounded-full pointer-events-none"></div>
+        <section id="contact" className="py-24 relative overflow-hidden bg-white transition-colors duration-500">
 
             <div className="w-11/12 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className="text-center mb-20"
+                    className="text-center mb-20 md:mb-28"
                 >
-                    <span className="inline-block py-1.5 px-4 rounded-full bg-primary/10  text-primary  font-bold text-sm mb-4 tracking-wider uppercase border border-primary/20">Connect</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900  mb-6 font-heading">
-                        Get In <span className="text-gradient">Touch</span>
+                    <span className="inline-block py-1 px-4 text-slate-900 font-bold tracking-[0.2em] text-xs uppercase mb-6 border-b border-slate-900">Connect</span>
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-8 font-heading uppercase tracking-tighter">
+                        Get In Touch
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
-                    <p className="text-slate-600  max-w-2xl mx-auto text-lg font-medium">
-                        Have a project in mind or just want to say hi? Feel free to connect!
-                    </p>
+                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -70,31 +64,31 @@ const Contact = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         className="space-y-10"
                     >
-                        <div>
-                            <h3 className="text-3xl font-extrabold text-slate-900  mb-4 tracking-tight font-heading">Let's build something awesome together!</h3>
-                            <p className="text-slate-600  text-lg leading-relaxed font-medium">
-                                I am currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                        <div className="border-b border-slate-900 pb-8 mb-8">
+                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tighter font-heading uppercase">Let's build something awesome together.</h3>
+                            <p className="text-slate-900 opacity-80 text-lg leading-relaxed font-mono text-sm uppercase tracking-wider">
+                                I am currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you.
                             </p>
                         </div>
 
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                             {[
-                                { icon: Mail, label: 'Email Me', value: email, link: `mailto:${email}`, color: 'text-primary', bgHover: 'group-hover:bg-primary' },
-                                { icon: Phone, label: 'Call Me', value: phone, link: `tel:${phone}`, color: 'text-secondary', bgHover: 'group-hover:bg-secondary' },
-                                { icon: MapPin, label: 'Location', value: location, link: null, color: 'text-emerald-500', bgHover: 'group-hover:bg-emerald-500' }
+                                { icon: Mail, label: 'Email Me', value: email, link: `mailto:${email}` },
+                                { icon: Phone, label: 'Call Me', value: phone, link: `tel:${phone}` },
+                                { icon: MapPin, label: 'Location', value: location, link: null }
                             ].map((info, index) => (
-                                <MagneticWrapper key={index} className="flex items-center gap-6 group cursor-pointer w-max">
-                                    <div className={`w-14 h-14 bg-white  backdrop-blur-md rounded-2xl flex items-center justify-center ${info.color} shadow-[0_5px_15px_rgba(0,0,0,0.05)]  border border-slate-100  ${info.bgHover} group-hover:text-white group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-300 pointer-events-none`}>
-                                        <info.icon size={24} />
+                                <MagneticWrapper key={index} className="flex items-center gap-6 group cursor-pointer w-full p-6 bg-[#F4F4F1] editorial-border hover:bg-slate-900 hover:text-white transition-colors duration-300">
+                                    <div className={`text-slate-900 group-hover:text-white transition-colors duration-300 pointer-events-none`}>
+                                        <info.icon size={28} strokeWidth={1} />
                                     </div>
                                     <div>
-                                        <p className="text-sm text-slate-500  font-bold tracking-wide uppercase mb-1 pointer-events-none">{info.label}</p>
+                                        <p className="text-xs font-bold tracking-widest uppercase mb-1 opacity-60 pointer-events-none">{info.label}</p>
                                         {info.link ? (
-                                            <a href={info.link} className="text-xl font-bold text-slate-900  hover:text-primary  transition-colors inline-block pointer-events-auto">
+                                            <a href={info.link} className="text-lg md:text-xl font-bold tracking-tight inline-block pointer-events-auto">
                                                 {info.value}
                                             </a>
                                         ) : (
-                                            <p className="text-xl font-bold text-slate-900  pointer-events-none">{info.value}</p>
+                                            <p className="text-lg md:text-xl font-bold tracking-tight pointer-events-none">{info.value}</p>
                                         )}
                                     </div>
                                 </MagneticWrapper>
@@ -107,63 +101,60 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="bg-white/80 backdrop-blur-xl p-8 sm:p-10 rounded-[2rem] border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.03)] relative overflow-hidden"
+                        className="bg-[#F4F4F1] p-8 md:p-12 editorial-border relative overflow-hidden shadow-[8px_8px_0px_#1c1c1c]"
                     >
-                        {/* Shimmer effect line */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50 bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite]"></div>
-
                         <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="group">
-                                    <label htmlFor="name" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Your Name</label>
+                                    <label htmlFor="name" className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">Your Name</label>
                                     <input
                                         type="text"
                                         id="name"
-                                        className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
-                                        placeholder="John Doe"
+                                        className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors rounded-none"
+                                        placeholder="Firoz Al Mahmud"
                                     />
                                 </div>
                                 <div className="group">
-                                    <label htmlFor="email" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Your Email</label>
+                                    <label htmlFor="email" className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">Your Email</label>
                                     <input
                                         type="email"
                                         id="email"
-                                        className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
-                                        placeholder="john@example.com"
+                                        className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors rounded-none"
+                                        placeholder="firoz@example.com"
                                     />
                                 </div>
                             </div>
                             <div className="group">
-                                <label htmlFor="subject" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Subject</label>
+                                <label htmlFor="subject" className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">Subject</label>
                                 <input
                                     type="text"
                                     id="subject"
-                                    className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-inner"
+                                    className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors rounded-none"
                                     placeholder="Project Inquiry"
                                 />
                             </div>
                             <div className="group">
-                                <label htmlFor="message" className="block text-sm font-bold text-slate-700  mb-2 group-focus-within:text-primary transition-colors">Message</label>
+                                <label htmlFor="message" className="block text-xs font-bold text-slate-900 uppercase tracking-widest mb-3">Message</label>
                                 <textarea
                                     id="message"
                                     rows="5"
-                                    className="w-full bg-slate-50  border border-slate-200  rounded-xl px-5 py-4 text-slate-900  placeholder-slate-400  focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none shadow-inner"
+                                    className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors resize-none rounded-none"
                                     placeholder="Hello, I'd like to talk about..."
                                 ></textarea>
                             </div>
 
                             <MagneticWrapper>
                                 <motion.button
-                                    whileTap={{ scale: 0.95 }}
+                                    whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="w-full py-4 bg-gradient-to-r from-primary to-sky-500 text-white rounded-xl font-bold flex items-center justify-center gap-3 hover:shadow-[0_10px_30px_rgba(14,165,233,0.3)] transition-all duration-300 hover:scale-[1.02] interactive-hover"
+                                    className="btn-primary w-full flex items-center justify-center gap-3"
                                 >
                                     <span>Send Message</span>
-                                    <Send size={20} className="animate-pulse" />
+                                    <Send size={18} />
                                 </motion.button>
                             </MagneticWrapper>
-                            <p className="text-center text-xs text-slate-500  mt-4 font-medium flex items-center justify-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-[blob_2s_infinite]"></span>
+                            <p className="text-center text-xs text-slate-500 mt-6 font-mono uppercase tracking-widest flex items-center justify-center gap-2">
+                                <span className="w-2 h-2 rounded-none bg-slate-900"></span>
                                 Typically replies within 24 hours
                             </p>
                         </form>

@@ -1,9 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense, lazy, useRef } from 'react';
 import { motion, useScroll, useSpring, useMotionValue } from 'framer-motion';
 import Navbar from './components/ui/Navbar';
 import Hero from './sections/Hero';
 import About from './sections/About';
-import Skills from './sections/Skills';
+const Skills = lazy(() => import('./sections/Skills'));
+import SkillsSkeleton from './components/ui/SkillsSkeleton';
+
+const LazySection = ({ children, fallback, minHeight = "800px" }) => {
+  const [isIntersecting, setIntersecting] = useState(false);
+  const ref = useRef();
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIntersecting(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px' } // Pre-load slightly before scrolling to it
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} style={{ minHeight: isIntersecting ? 'auto' : minHeight }}>
+      {isIntersecting ? (
+        <Suspense fallback={fallback}>
+          {children}
+        </Suspense>
+      ) : (
+        fallback
+      )}
+    </div>
+  );
+};
 import Projects from './sections/Projects';
 import Education from './sections/Education';
 import Impact from './sections/Impact';
@@ -61,9 +93,9 @@ function App() {
   return (
     <div className="relative min-h-screen font-sans antialiased transition-colors duration-500">
 
-      {/* Scroll Progress Indicator */}
+      {/* Scroll Progress Indicator - sharp editorial style */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-1 bg-slate-900 origin-left z-[100]"
         style={{ scaleX }}
       />
 
@@ -75,22 +107,15 @@ function App() {
         }}
         animate={{
           scale: isHovering ? 3 : 1,
-          opacity: isHovering ? 0.08 : 0.8,
-          backgroundColor: "#0f172a"
+          opacity: isHovering ? 0.2 : 0.8,
+          backgroundColor: isHovering ? "transparent" : "#1c1c1c",
+          border: isHovering ? "1px solid #1c1c1c" : "none"
         }}
         transition={{ type: "spring", stiffness: 400, damping: 25, mass: 0.2 }}
         className="fixed top-0 left-0 w-4 h-4 rounded-full pointer-events-none z-[999] hidden md:block"
       />
 
-      {/* Subtle Grain/Noise Overlay for depth */}
-      <div className="noise-overlay"></div>
-
-      {/* Abstract Background Elements (Mesh Gradients) */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/10  mix-blend-multiply  filter blur-[120px] animate-blob"></div>
-        <div className="absolute top-[20%] right-[-10%] w-[35%] h-[35%] rounded-full bg-secondary/10  mix-blend-multiply  filter blur-[120px] animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-cyan-500/10  mix-blend-multiply  filter blur-[120px] animate-blob animation-delay-4000"></div>
-      </div>
+      {/* Removed Abstract Background Elements and Noise Overlay for clean editorial look */}
 
       {/* Main Content */}
       <div className="relative z-10 w-full">
@@ -98,7 +123,9 @@ function App() {
         <main className="w-full">
           <Hero />
           <About />
-          <Skills />
+          <LazySection fallback={<SkillsSkeleton />}>
+            <Skills />
+          </LazySection>
           <Projects />
           <Impact />
           <Contact />

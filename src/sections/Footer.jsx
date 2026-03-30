@@ -45,36 +45,29 @@ const Footer = () => {
     };
 
     return (
-        <footer className="relative bg-white  pt-20 pb-10 overflow-hidden border-t border-slate-200  transition-colors duration-500">
-            {/* Animated Gradient Border Top */}
-            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-secondary opacity-30 "></div>
-
-            {/* Background Glows */}
-            <div className="absolute -top-40 left-1/4 w-96 h-96 bg-primary/5  rounded-full blur-[120px] pointer-events-none"></div>
-            <div className="absolute -bottom-40 right-1/4 w-96 h-96 bg-secondary/5  rounded-full blur-[120px] pointer-events-none"></div>
-
+        <footer className="relative bg-[#F4F4F1] pt-20 pb-10 overflow-hidden border-t border-slate-900 transition-colors duration-500">
             <div className="w-11/12 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
                     {/* Brand & description */}
                     <div className="lg:col-span-2">
-                        <span className="text-3xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-5 inline-block font-heading tracking-tight">Firoz.</span>
-                        <p className="text-slate-600  leading-relaxed max-w-sm mb-8 text-base font-medium">
+                        <span className="text-5xl font-bold text-slate-900 mb-6 inline-block font-heading tracking-tighter uppercase">FIROZ</span>
+                        <p className="text-slate-900 opacity-80 leading-relaxed max-w-sm mb-8 text-base">
                             Building exceptional digital experiences with modern web technologies. Focused on beautiful design, clean code, and interactive user interfaces.
                         </p>
-                        <div className="flex items-center gap-5">
+                        <div className="flex items-center gap-4">
                             <MagneticWrapper>
-                                <a href={github} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-2xl bg-slate-100  border border-slate-200  flex items-center justify-center text-slate-600  hover:text-slate-900  hover:bg-white  hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)]  transition-all duration-300">
-                                    <FaGithub size={22} />
+                                <a href={github} target="_blank" rel="noreferrer" className="w-12 h-12 bg-transparent border border-slate-900 flex items-center justify-center text-slate-900 hover:text-white hover:bg-slate-900 transition-colors duration-300">
+                                    <FaGithub size={20} />
                                 </a>
                             </MagneticWrapper>
                             <MagneticWrapper>
-                                <a href={linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 rounded-2xl bg-blue-50  border border-blue-100  flex items-center justify-center text-blue-600  hover:text-white hover:bg-[#0A66C2]   hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(10,102,194,0.3)] transition-all duration-300">
-                                    <FaLinkedin size={22} />
+                                <a href={linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 bg-transparent border border-slate-900 flex items-center justify-center text-slate-900 hover:text-white hover:bg-slate-900 transition-colors duration-300">
+                                    <FaLinkedin size={20} />
                                 </a>
                             </MagneticWrapper>
                             <MagneticWrapper>
-                                <a href={`mailto:${email}`} className="w-12 h-12 rounded-2xl bg-pink-50  border border-pink-100  flex items-center justify-center text-pink-600  hover:text-white hover:bg-pink-500   hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(236,72,153,0.3)] transition-all duration-300">
-                                    <Mail size={22} />
+                                <a href={`mailto:${email}`} className="w-12 h-12 bg-transparent border border-slate-900 flex items-center justify-center text-slate-900 hover:text-white hover:bg-slate-900 transition-colors duration-300">
+                                    <Mail size={20} />
                                 </a>
                             </MagneticWrapper>
                         </div>
@@ -82,15 +75,15 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-slate-900  font-bold mb-6 uppercase tracking-wider text-sm flex items-center gap-2">
-                            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-[pulse_2s_infinite]"></span>
+                        <h4 className="text-slate-900 font-bold mb-6 uppercase tracking-widest text-xs flex items-center gap-3">
+                            <span className="w-2 h-2 bg-slate-900 border border-slate-900"></span>
                             Quick Links
                         </h4>
-                        <ul className="space-y-4 font-medium">
+                        <ul className="space-y-4">
                             {['Home', 'Skills', 'Projects', 'Education', 'Contact'].map((item) => (
                                 <li key={item}>
-                                    <a href={`#${item.toLowerCase()}`} className="text-slate-600  hover:text-primary  flex items-center gap-3 transition-colors duration-300 group text-base">
-                                        <span className="w-0 h-[2px] bg-primary group-hover:w-4 transition-all duration-300 ease-out rounded-full"></span>
+                                    <a href={`#${item.toLowerCase()}`} className="text-slate-900 opacity-80 hover:opacity-100 flex items-center gap-3 transition-opacity duration-300 group text-sm font-bold uppercase tracking-wider">
+                                        <span className="w-0 h-[1px] bg-slate-900 group-hover:w-4 transition-all duration-300 ease-out"></span>
                                         {item}
                                     </a>
                                 </li>
@@ -100,48 +93,48 @@ const Footer = () => {
 
                     {/* Contact details */}
                     <div>
-                        <h4 className="text-slate-900  font-bold mb-6 uppercase tracking-wider text-sm flex items-center gap-2">
-                            <span className="w-2.5 h-2.5 rounded-full bg-secondary animate-[pulse_2s_infinite_1s]"></span>
+                        <h4 className="text-slate-900 font-bold mb-6 uppercase tracking-widest text-xs flex items-center gap-3">
+                            <span className="w-2 h-2 bg-transparent border border-slate-900"></span>
                             Contact Info
                         </h4>
-                        <ul className="space-y-5 text-base font-medium">
-                            <li className="flex items-start gap-4 text-slate-600  group">
-                                <div className="mt-0.5 p-2 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                    <MapPin size={18} />
+                        <ul className="space-y-6 text-sm font-mono uppercase tracking-widest opacity-80">
+                            <li className="flex items-start gap-4 text-slate-900">
+                                <div className="mt-0.5">
+                                    <MapPin size={16} />
                                 </div>
-                                <span className="pt-1 leading-tight">{location}</span>
+                                <span className="pt-0.5 leading-tight">{location}</span>
                             </li>
-                            <li className="flex items-center gap-4 text-slate-600  group">
-                                <div className="p-2 bg-secondary/10 rounded-xl text-secondary group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
-                                    <Phone size={18} />
+                            <li className="flex items-center gap-4 text-slate-900">
+                                <div>
+                                    <Phone size={16} />
                                 </div>
                                 <span>{phone}</span>
                             </li>
-                            <li className="flex items-center gap-4 text-slate-600  group">
-                                <div className="p-2 bg-pink-500/10 rounded-xl text-pink-500 group-hover:bg-pink-500 group-hover:text-white transition-colors duration-300">
-                                    <Mail size={18} />
+                            <li className="flex items-center gap-4 text-slate-900">
+                                <div>
+                                    <Mail size={16} />
                                 </div>
-                                <a href={`mailto:${email}`} className="hover:text-slate-900  transition-colors block truncate">{email}</a>
+                                <a href={`mailto:${email}`} className="hover:text-slate-900 transition-colors block truncate font-bold">{email}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-slate-200  pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-6 relative">
-                    <p className="text-slate-600  text-sm flex items-center gap-2 font-bold">
-                        © {new Date().getFullYear()} {name}. Built with <Heart size={16} className="text-red-500 fill-red-500 animate-[pulse_2s_infinite] drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]" /> & React.
+                <div className="border-t border-slate-900 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-6 relative">
+                    <p className="text-slate-900 text-xs uppercase tracking-widest font-bold flex items-center gap-2">
+                        © {new Date().getFullYear()} {name}. <Heart size={14} className="text-slate-900 fill-slate-900" />
                     </p>
 
                     {/* Back to top magnetic button */}
                     <MagneticWrapper className="absolute -top-6 right-4 md:static">
                         <button
                             onClick={scrollToTop}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white  backdrop-blur-md border border-slate-200  hover:bg-slate-50  flex items-center justify-center text-primary transition-all duration-300 group hover:shadow-[0_10px_20px_rgba(14,165,233,0.3)] hover:border-primary/50 overflow-hidden"
+                            className="w-12 h-12 bg-[#F4F4F1] border border-slate-900 hover:bg-slate-900 hover:text-white flex items-center justify-center text-slate-900 transition-colors duration-300 group overflow-hidden"
                             aria-label="Scroll to top"
                         >
-                            <ArrowUp size={24} className="group-hover:-translate-y-12 transition-transform duration-300" />
-                            <ArrowUp size={24} className="absolute translate-y-12 group-hover:translate-y-0 text-secondary transition-transform duration-300" />
+                            <ArrowUp size={20} className="group-hover:-translate-y-12 transition-transform duration-300" />
+                            <ArrowUp size={20} className="absolute translate-y-12 group-hover:translate-y-0 text-white transition-transform duration-300" />
                         </button>
                     </MagneticWrapper>
                 </div>

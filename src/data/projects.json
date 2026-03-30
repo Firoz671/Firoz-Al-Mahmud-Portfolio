@@ -22,5 +22,17 @@
     "image": "https://i.ibb.co/R4SW98kt/image.png",
     "demoLink": "https://regal-paprenjak-efd3fd.netlify.app/",
     "githubLink": "https://github.com/Firoz671/book-store-web"
+  },
+  {
+    "id": 3,
+    "title": "Hero.IO",
+    "description": "A simple and mini single page App store(only frontend).",
+    "technologies": [
+      "React.js",
+      "Tailwind CSS"
+    ],
+    "image": "https://i.ibb.co.com/Z0hfh8s/image.png",
+    "demoLink": "https://hero-io-omega-pink.vercel.app/",
+    "githubLink": "https://github.com/Firoz671/hero-io"
   }
 ]

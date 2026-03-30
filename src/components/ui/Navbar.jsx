@@ -24,15 +24,16 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/80  backdrop-blur-xl border-b border-slate-200  shadow-sm py-3' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#F4F4F1]/95 backdrop-blur-sm border-b border-slate-900 py-3' : 'bg-transparent py-6'}`}>
             <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
-                <a href="#home" className="text-2xl font-bold text-gradient font-heading tracking-tight interactive-hover">Firoz.</a>
+                <a href="#home" className="text-2xl font-bold text-slate-900 font-heading tracking-tight interactive-hover">Firoz.</a>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center space-x-8">
                     {navLinks.map((link) => (
-                        <a key={link.name} href={link.href} className="text-slate-600  hover:text-primary  transition-colors font-medium text-sm uppercase tracking-wider interactive-hover">
+                        <a key={link.name} href={link.href} className="text-slate-900 hover:text-accent transition-colors font-medium text-xs uppercase tracking-widest interactive-hover relative group">
                             {link.name}
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-slate-900 transition-all group-hover:w-full"></span>
                         </a>
                     ))}
                 </div>
@@ -53,14 +54,14 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden absolute top-full left-0 w-full glass border-t-0 py-4 px-6 flex flex-col space-y-4 shadow-xl"
+                        className="md:hidden absolute top-full left-0 w-full bg-[#F4F4F1] border-b border-slate-900 py-4 px-6 flex flex-col space-y-4 shadow-2xl"
                     >
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 onClick={() => setIsOpen(false)}
-                                className="text-slate-800  hover:text-primary transition-colors text-lg font-medium"
+                                className="text-slate-900 hover:text-accent transition-colors text-sm uppercase font-bold tracking-widest border-b border-slate-900/10 pb-2"
                             >
                                 {link.name}
                             </a>
