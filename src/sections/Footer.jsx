@@ -45,7 +45,7 @@ const Footer = () => {
     };
 
     return (
-        <footer className="relative bg-[#F4F4F1] pt-20 pb-10 overflow-hidden border-t border-slate-900 transition-colors duration-500">
+        <footer className="relative bg-[#F4F4F1] pt-20 pb-10 overflow-hidden border-t border-slate-200 transition-colors duration-500">
             <div className="w-11/12 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
                     {/* Brand & description */}
@@ -56,17 +56,17 @@ const Footer = () => {
                         </p>
                         <div className="flex items-center gap-4">
                             <MagneticWrapper>
-                                <a href={github} target="_blank" rel="noreferrer" className="w-12 h-12 bg-transparent border border-slate-900 flex items-center justify-center text-slate-900 hover:text-white hover:bg-slate-900 transition-colors duration-300">
+                                <a href={github} target="_blank" rel="noreferrer" className="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-700 shadow-sm hover:text-white hover:bg-slate-900 hover:border-slate-900 hover:shadow-lg transition-all duration-500 ease-out">
                                     <FaGithub size={20} />
                                 </a>
                             </MagneticWrapper>
                             <MagneticWrapper>
-                                <a href={linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 bg-transparent border border-slate-900 flex items-center justify-center text-slate-900 hover:text-white hover:bg-slate-900 transition-colors duration-300">
+                                <a href={linkedin} target="_blank" rel="noreferrer" className="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-700 shadow-sm hover:text-white hover:bg-slate-900 hover:border-slate-900 hover:shadow-lg transition-all duration-500 ease-out">
                                     <FaLinkedin size={20} />
                                 </a>
                             </MagneticWrapper>
                             <MagneticWrapper>
-                                <a href={`mailto:${email}`} className="w-12 h-12 bg-transparent border border-slate-900 flex items-center justify-center text-slate-900 hover:text-white hover:bg-slate-900 transition-colors duration-300">
+                                <a href={`mailto:${email}`} className="w-12 h-12 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-700 shadow-sm hover:text-white hover:bg-slate-900 hover:border-slate-900 hover:shadow-lg transition-all duration-500 ease-out">
                                     <Mail size={20} />
                                 </a>
                             </MagneticWrapper>
@@ -76,14 +76,14 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div>
                         <h4 className="text-slate-900 font-bold mb-6 uppercase tracking-widest text-xs flex items-center gap-3">
-                            <span className="w-2 h-2 bg-slate-900 border border-slate-900"></span>
+                            <span className="w-2 h-2 rounded-full bg-slate-900 border border-slate-900"></span>
                             Quick Links
                         </h4>
                         <ul className="space-y-4">
                             {['Home', 'Skills', 'Projects', 'Education', 'Contact'].map((item) => (
                                 <li key={item}>
                                     <a href={`#${item.toLowerCase()}`} className="text-slate-900 opacity-80 hover:opacity-100 flex items-center gap-3 transition-opacity duration-300 group text-sm font-bold uppercase tracking-wider">
-                                        <span className="w-0 h-[1px] bg-slate-900 group-hover:w-4 transition-all duration-300 ease-out"></span>
+                                        <span className="w-1 h-1 rounded-full bg-slate-900 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out"></span>
                                         {item}
                                     </a>
                                 </li>
@@ -94,7 +94,7 @@ const Footer = () => {
                     {/* Contact details */}
                     <div>
                         <h4 className="text-slate-900 font-bold mb-6 uppercase tracking-widest text-xs flex items-center gap-3">
-                            <span className="w-2 h-2 bg-transparent border border-slate-900"></span>
+                            <span className="w-2 h-2 rounded-full bg-transparent border border-slate-900"></span>
                             Contact Info
                         </h4>
                         <ul className="space-y-6 text-sm font-mono uppercase tracking-widest opacity-80">
@@ -121,7 +121,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-slate-900 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-6 relative">
+                <div className="border-t border-slate-200 pt-8 pb-4 flex flex-col md:flex-row items-center justify-between gap-6 relative">
                     <p className="text-slate-900 text-xs uppercase tracking-widest font-bold flex items-center gap-2">
                         © {new Date().getFullYear()} {name}. <Heart size={14} className="text-slate-900 fill-slate-900" />
                     </p>
@@ -130,11 +130,11 @@ const Footer = () => {
                     <MagneticWrapper className="absolute -top-6 right-4 md:static">
                         <button
                             onClick={scrollToTop}
-                            className="w-12 h-12 bg-[#F4F4F1] border border-slate-900 hover:bg-slate-900 hover:text-white flex items-center justify-center text-slate-900 transition-colors duration-300 group overflow-hidden"
+                            className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm hover:bg-slate-900 hover:text-white flex items-center justify-center text-slate-700 transition-all duration-500 ease-out group overflow-hidden"
                             aria-label="Scroll to top"
                         >
-                            <ArrowUp size={20} className="group-hover:-translate-y-12 transition-transform duration-300" />
-                            <ArrowUp size={20} className="absolute translate-y-12 group-hover:translate-y-0 text-white transition-transform duration-300" />
+                            <ArrowUp size={20} className="group-hover:-translate-y-12 transition-transform duration-500 ease-out" />
+                            <ArrowUp size={20} className="absolute translate-y-12 group-hover:translate-y-0 text-white transition-transform duration-500 ease-out" />
                         </button>
                     </MagneticWrapper>
                 </div>

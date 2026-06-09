@@ -3,7 +3,6 @@ import { Typewriter } from 'react-simple-typewriter';
 import { Github, Linkedin, Mail, ArrowRight, FileText } from 'lucide-react';
 import { portfolioData } from '../data';
 import { useState, useRef } from 'react';
-import ResumeModal from '../components/ui/ResumeModal';
 import MagneticWrapper from '../components/ui/MagneticWrapper';
 
 // Helper component for staggered word reveal
@@ -53,7 +52,6 @@ const StaggeredText = ({ text, className, delay = 0 }) => {
 const Hero = () => {
     const { name, github, linkedin, email } = portfolioData.personalInfo;
     const ref = useRef(null);
-    const [isResumeOpen, setIsResumeOpen] = useState(false);
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"]
@@ -105,7 +103,7 @@ const Hero = () => {
                             emerging technologies to drive high-quality results within a professional team.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row items-start lg:items-center gap-6">
+                        <div className="flex flex-col sm:flex-row items-start lg:items-center gap-6 mb-6">
                             <MagneticWrapper>
                                 <a href="#projects" className="btn-primary flex items-center gap-3 group">
                                     <span>Selected Works</span>
@@ -113,11 +111,16 @@ const Hero = () => {
                                 </a>
                             </MagneticWrapper>
                             <MagneticWrapper>
-                                <button onClick={() => setIsResumeOpen(true)} className="btn-secondary flex items-center gap-3 group">
-                                    <FileText size={16} className="text-accent group-hover:-translate-y-1 transition-transform" />
-                                    <span>Curriculum Vitae</span>
-                                </button>
+                                <a href="/FirozAlMahmud.pdf" target="_blank" rel="noreferrer" className="btn-secondary flex items-center gap-3 group relative overflow-hidden bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all duration-500 hover:-translate-y-1">
+                                    <FileText size={16} className="text-slate-900" />
+                                    <span className="font-bold text-slate-900">Curriculum Vitae</span>
+                                </a>
                             </MagneticWrapper>
+                        </div>
+                        
+                        <div className="flex items-center gap-3 text-sm font-medium text-slate-600 bg-emerald-50/50 border border-emerald-100 px-4 py-2 rounded-full w-fit">
+                            <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgb(16,185,129,0.5)] animate-pulse"></span>
+                            Available for Frontend Developer Internship
                         </div>
                     </motion.div>
                 </div>
@@ -130,12 +133,12 @@ const Hero = () => {
                     className="flex-1 order-1 lg:order-2 flex justify-center lg:justify-end w-full lg:w-auto relative"
                 >
                     <div className="relative w-full max-w-[320px] lg:max-w-md aspect-[3/4] group mt-12 lg:mt-0">
-                        {/* Sharp border accent */}
-                        <div className="absolute -inset-4 border border-slate-900 bg-transparent translate-x-3 translate-y-3 -z-10 transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5 hidden sm:block"></div>
+                        {/* Soft border accent */}
+                        <div className="absolute -inset-4 border border-slate-300 rounded-3xl bg-transparent translate-x-3 translate-y-3 -z-10 transition-all duration-700 ease-out group-hover:translate-x-5 group-hover:translate-y-5 hidden sm:block"></div>
 
                         {/* Main Image */}
-                        <div className="w-full h-full overflow-hidden bg-slate-200 relative z-10">
-                            <div className="absolute inset-0 bg-slate-900/10 mix-blend-multiply z-10 transition-opacity duration-500 group-hover:opacity-0"></div>
+                        <div className="w-full h-full overflow-hidden bg-slate-200 relative z-10 rounded-2xl shadow-xl transition-shadow duration-700 group-hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)]">
+                            <div className="absolute inset-0 bg-slate-900/10 mix-blend-multiply z-10 transition-opacity duration-700 ease-out group-hover:opacity-0"></div>
                             <img
                                 src="/profile.jpg"
                                 alt={name}
@@ -200,7 +203,6 @@ const Hero = () => {
                 </a>
             </motion.div>
 
-            <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
         </section>
     );
 };

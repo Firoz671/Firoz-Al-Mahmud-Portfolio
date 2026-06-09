@@ -6,7 +6,7 @@ const Education = () => {
     const { education, certifications } = portfolioData;
 
     return (
-        <section id="education" className="py-24 relative overflow-hidden bg-white transition-colors duration-500 border-t border-slate-900">
+        <section id="education" className="py-24 relative overflow-hidden bg-white transition-colors duration-500 border-t border-slate-200">
             <div className="w-11/12 max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -14,24 +14,24 @@ const Education = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-20 md:mb-28"
                 >
-                    <span className="inline-block py-1 px-4 text-slate-900 font-bold tracking-[0.2em] text-xs uppercase mb-6 border-b border-slate-900">Journey</span>
+                    <span className="inline-block py-1 px-4 text-slate-900 font-bold tracking-[0.2em] text-xs uppercase mb-6 border-b border-slate-300">Journey</span>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-8 font-heading uppercase tracking-tighter">
                         Education
                     </h2>
-                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10"></div>
+                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10 rounded-full"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                     {/* Education Timeline */}
                     <div>
-                        <div className="flex items-center gap-5 mb-16 border-b border-slate-900 pb-6">
+                        <div className="flex items-center gap-5 mb-16 border-b border-slate-200 pb-6">
                             <div className="text-slate-900">
                                 <GraduationCap size={36} strokeWidth={1} />
                             </div>
                             <h3 className="text-3xl font-bold text-slate-900 font-heading tracking-tighter uppercase">Academic</h3>
                         </div>
 
-                        <div className="relative border-l border-slate-900 pl-8 ml-4 space-y-16">
+                        <div className="relative border-l border-slate-200 pl-8 ml-4 space-y-16">
                             {education.map((edu, index) => (
                                 <motion.div
                                     key={index}
@@ -41,12 +41,12 @@ const Education = () => {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="relative group"
                                 >
-                                    {/* Timeline Square instead of dot */}
-                                    <div className="absolute -left-[37px] top-0 w-3 h-3 bg-slate-900 transition-transform duration-300 group-hover:rotate-45"></div>
+                                    {/* Timeline Circle */}
+                                    <div className="absolute -left-[37px] top-1 w-3 h-3 bg-slate-300 rounded-full transition-all duration-500 ease-out group-hover:scale-125 group-hover:bg-slate-900"></div>
 
-                                    <div className="bg-[#F4F4F1] border border-slate-900 p-8 group-hover:-translate-y-2 hover:bg-slate-900 hover:text-white transition-colors duration-500 relative flex flex-col items-start">
+                                    <div className="p-8 polished-card hover:bg-slate-900 hover:text-white transition-all duration-500 ease-out relative flex flex-col items-start">
                                         
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest mb-6 border border-slate-900 group-hover:bg-transparent group-hover:text-white group-hover:border-white">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest mb-6 border border-slate-200 rounded-full shadow-sm group-hover:bg-transparent group-hover:text-white group-hover:border-white transition-colors duration-500 ease-out">
                                             <Calendar size={14} />
                                             <span>{edu.duration}</span>
                                         </div>
@@ -66,14 +66,14 @@ const Education = () => {
 
                     {/* Certifications Timeline */}
                     <div>
-                        <div className="flex items-center gap-5 mb-16 border-b border-slate-900 pb-6">
+                        <div className="flex items-center gap-5 mb-16 border-b border-slate-200 pb-6">
                             <div className="text-slate-900">
                                 <Award size={36} strokeWidth={1} />
                             </div>
                             <h3 className="text-3xl font-bold text-slate-900 font-heading tracking-tighter uppercase">Certifications</h3>
                         </div>
 
-                        <div className="relative border-l border-slate-900 pl-8 ml-4 space-y-16">
+                        <div className="relative border-l border-slate-200 pl-8 ml-4 space-y-16">
                             {certifications.map((cert, index) => (
                                 <motion.div
                                     key={index}
@@ -83,14 +83,14 @@ const Education = () => {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     className="relative group"
                                 >
-                                    {/* Timeline Square instead of dot */}
-                                    <div className="absolute -left-[37px] top-0 w-3 h-3 bg-slate-900 transition-transform duration-300 group-hover:rotate-45"></div>
+                                    {/* Timeline Circle */}
+                                    <div className="absolute -left-[37px] top-1 w-3 h-3 bg-slate-300 rounded-full transition-all duration-500 ease-out group-hover:scale-125 group-hover:bg-slate-900"></div>
 
-                                    <div className="bg-[#F4F4F1] border border-slate-900 p-8 group-hover:-translate-y-2 hover:bg-slate-900 hover:text-white transition-colors duration-500 relative flex flex-col items-start">
+                                    <div className="p-8 polished-card hover:bg-slate-900 hover:text-white transition-all duration-500 ease-out relative flex flex-col items-start">
                                         
-                                        <h4 className="text-xl font-bold text-slate-900 mb-6 font-heading tracking-tight group-hover:text-white transition-colors leading-tight">{cert.title}</h4>
+                                        <h4 className="text-xl font-bold text-slate-900 mb-6 font-heading tracking-tight group-hover:text-white transition-colors duration-500 ease-out leading-tight">{cert.title}</h4>
 
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest border border-slate-900 group-hover:bg-transparent group-hover:text-white group-hover:border-white">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-white text-slate-900 text-xs font-mono uppercase tracking-widest border border-slate-200 shadow-sm rounded-full group-hover:bg-transparent group-hover:text-white group-hover:border-white transition-colors duration-500 ease-out">
                                             <Award size={14} />
                                             <span>{cert.issuer}</span>
                                         </div>

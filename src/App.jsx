@@ -37,6 +37,7 @@ const LazySection = ({ children, fallback, minHeight = "800px" }) => {
   );
 };
 import Projects from './sections/Projects';
+import Exploring from './sections/Exploring';
 import Education from './sections/Education';
 import Impact from './sections/Impact';
 import Contact from './sections/Contact';
@@ -126,6 +127,7 @@ function App() {
           <LazySection fallback={<SkillsSkeleton />}>
             <Skills />
           </LazySection>
+          <Exploring />
           <Projects />
           <Impact />
           <Contact />

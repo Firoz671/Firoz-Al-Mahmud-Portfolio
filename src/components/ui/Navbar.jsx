@@ -24,7 +24,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#F4F4F1]/95 backdrop-blur-sm border-b border-slate-900 py-3' : 'bg-transparent py-6'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-[#F4F4F1]/80 backdrop-blur-xl border-b border-slate-200 shadow-[0_2px_10px_rgb(0,0,0,0.02)] py-4' : 'bg-transparent py-6'}`}>
             <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
                 <a href="#home" className="text-2xl font-bold text-slate-900 font-heading tracking-tight interactive-hover">Firoz.</a>
 

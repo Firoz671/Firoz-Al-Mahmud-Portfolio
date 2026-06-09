@@ -8,7 +8,7 @@ import projectsData from '../data/projects.json';
 
 const ManualProjectCard = ({ project, variants }) => {
     return (
-        <motion.div variants={variants} className="group relative z-10 bg-white flex flex-col md:flex-row transition-all duration-500 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 hover:-translate-y-1">
+        <motion.div variants={variants} className="group relative z-10 flex flex-col md:flex-row polished-card overflow-hidden p-0">
             {/* Image container covering left half */}
             <div className="w-full md:w-5/12 h-64 md:h-auto relative overflow-hidden bg-slate-100 flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent z-10 opacity-70 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"></div>
@@ -77,7 +77,7 @@ const ManualProjectCard = ({ project, variants }) => {
 const RepoCard = ({ repo, getLanguageColor, variants, onClick }) => {
     return (
         <motion.div variants={variants} className="relative z-10 cursor-pointer h-full" onClick={() => onClick(repo)}>
-            <div className="bg-white p-6 sm:p-8 flex flex-col justify-between group h-full rounded-2xl border border-slate-200 transition-all duration-300 hover:shadow-md hover:border-slate-300 hover:-translate-y-1 relative">
+            <div className="p-6 sm:p-8 flex flex-col justify-between group h-full polished-card relative">
                 <div className="flex flex-col h-full w-full">
                     <div className="flex justify-between items-start mb-5">
                         <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 group-hover:text-amber-500 group-hover:border-amber-200 group-hover:bg-amber-50 transition-colors duration-300">
@@ -266,7 +266,7 @@ const Projects = () => {
                         {loading ? (
                             // Clean Loading Skeletons
                             [...Array(6)].map((_, i) => (
-                                <div key={i} className="bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 h-full relative overflow-hidden">
+                                <div key={i} className="polished-card p-6 sm:p-8 h-full relative overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-50 to-transparent -translate-x-full animate-[shimmer_2s_infinite]"></div>
                                     <div className="flex justify-between items-start mb-6">
                                         <div className="w-11 h-11 rounded-xl bg-slate-100 relative"></div>

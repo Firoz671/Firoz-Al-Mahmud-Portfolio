@@ -1,10 +1,24 @@
 [
   {
     "id": 1,
+    "title": "Hookfinity",
+    "description": "Developed a complete fashion e-commerce solution with React, Tailwind CSS, PHP, MySQL, Cloudinary, and Meta Pixel integration, including a custom admin management system.",
+    "technologies": [
+      "React.js",
+      "Tailwind CSS",
+      "PHP",
+      "MySQL"
+    ],
+    "image": "https://i.ibb.co/XfCSm6FR/Chat-GPT-Image-Jun-9-2026-08-12-23-PM.png",
+    "demoLink": "https://www.hookfinityshop.com/",
+    "githubLink": "https://github.com/Firoz671/"
+  },
+  {
+    "id": 2,
     "title": "Emergency Hotline Web",
     "description": "A simple and mini single page website for emergency hotline service.",
     "technologies": [
-      "Vanilla JS",
+      "React.JS",
       "Tailwind CSS"
     ],
     "image": "https://i.ibb.co/DxtP0WN/image.png",
@@ -12,7 +26,7 @@
     "githubLink": "https://github.com/Firoz671/Emergency-Hotline-Web"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "VibeBooks",
     "description": "A simple and mini single page website for book store.",
     "technologies": [
@@ -24,7 +38,7 @@
     "githubLink": "https://github.com/Firoz671/book-store-web"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Hero.IO",
     "description": "A simple and mini single page App store(only frontend).",
     "technologies": [

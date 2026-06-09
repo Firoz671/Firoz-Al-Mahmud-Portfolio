@@ -53,7 +53,7 @@ const Contact = () => {
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-8 font-heading uppercase tracking-tighter">
                         Get In Touch
                     </h2>
-                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10"></div>
+                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10 rounded-full"></div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
@@ -77,8 +77,8 @@ const Contact = () => {
                                 { icon: Phone, label: 'Call Me', value: phone, link: `tel:${phone}` },
                                 { icon: MapPin, label: 'Location', value: location, link: null }
                             ].map((info, index) => (
-                                <MagneticWrapper key={index} className="flex items-center gap-6 group cursor-pointer w-full p-6 bg-[#F4F4F1] editorial-border hover:bg-slate-900 hover:text-white transition-colors duration-300">
-                                    <div className={`text-slate-900 group-hover:text-white transition-colors duration-300 pointer-events-none`}>
+                                <MagneticWrapper key={index} className="flex items-center gap-6 group cursor-pointer w-full p-6 bg-white polished-card hover:bg-slate-900 hover:text-white transition-all duration-500 ease-out">
+                                    <div className={`text-slate-900 group-hover:text-white transition-colors duration-500 ease-out pointer-events-none`}>
                                         <info.icon size={28} strokeWidth={1} />
                                     </div>
                                     <div>
@@ -101,7 +101,7 @@ const Contact = () => {
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
-                        className="bg-[#F4F4F1] p-8 md:p-12 editorial-border relative overflow-hidden shadow-[8px_8px_0px_#1c1c1c]"
+                        className="bg-white p-8 md:p-12 polished-card relative overflow-hidden"
                     >
                         <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -110,7 +110,7 @@ const Contact = () => {
                                     <input
                                         type="text"
                                         id="name"
-                                        className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors rounded-none"
+                                        className="w-full bg-slate-50 border border-slate-200 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100 transition-colors rounded-xl"
                                         placeholder="Firoz Al Mahmud"
                                     />
                                 </div>
@@ -119,7 +119,7 @@ const Contact = () => {
                                     <input
                                         type="email"
                                         id="email"
-                                        className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors rounded-none"
+                                        className="w-full bg-slate-50 border border-slate-200 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100 transition-colors rounded-xl"
                                         placeholder="firoz@example.com"
                                     />
                                 </div>
@@ -129,7 +129,7 @@ const Contact = () => {
                                 <input
                                     type="text"
                                     id="subject"
-                                    className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors rounded-none"
+                                    className="w-full bg-slate-50 border border-slate-200 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100 transition-colors rounded-xl"
                                     placeholder="Project Inquiry"
                                 />
                             </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                                 <textarea
                                     id="message"
                                     rows="5"
-                                    className="w-full bg-white border border-slate-300 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-900 transition-colors resize-none rounded-none"
+                                    className="w-full bg-slate-50 border border-slate-200 px-5 py-4 text-slate-900 focus:outline-none focus:border-slate-400 focus:ring-2 focus:ring-slate-100 transition-colors resize-none rounded-2xl"
                                     placeholder="Hello, I'd like to talk about..."
                                 ></textarea>
                             </div>
@@ -154,7 +154,7 @@ const Contact = () => {
                                 </motion.button>
                             </MagneticWrapper>
                             <p className="text-center text-xs text-slate-500 mt-6 font-mono uppercase tracking-widest flex items-center justify-center gap-2">
-                                <span className="w-2 h-2 rounded-none bg-slate-900"></span>
+                                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgb(16,185,129,0.5)]"></span>
                                 Typically replies within 24 hours
                             </p>
                         </form>

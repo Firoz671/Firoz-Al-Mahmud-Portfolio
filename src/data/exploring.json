@@ -1,0 +1,14 @@
+[
+  {
+    "title": "AI + Frontend Integration",
+    "description": "Exploring how AI can enhance UI and user experience."
+  },
+  {
+    "title": "Advanced React Patterns",
+    "description": "Learning scalable and reusable component architecture."
+  },
+  {
+    "title": "Web Performance Optimization",
+    "description": "Improving loading speed and Lighthouse scores."
+  }
+]

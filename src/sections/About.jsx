@@ -13,11 +13,11 @@ const About = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="text-center mb-20"
                 >
-                    <span className="inline-block py-1 mb-6 text-slate-900 font-bold text-xs tracking-[0.2em] uppercase border-b border-slate-900">The Narrative</span>
+                    <span className="inline-block py-1 mb-6 text-slate-900 font-bold text-xs tracking-[0.2em] uppercase border-b border-slate-300">The Narrative</span>
                     <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 mb-8 font-heading tracking-tighter uppercase">
                         Why Hire Me?
                     </h2>
-                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10"></div>
+                    <div className="w-16 h-1 bg-slate-900 mx-auto mb-10 rounded-full"></div>
 
                     <motion.div
                         initial="hidden"
@@ -56,7 +56,7 @@ const About = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         className="lg:col-span-5 space-y-8"
                     >
-                        <div className="bg-[#F4F4F1] p-8 md:p-12 relative overflow-hidden editorial-border h-full flex flex-col justify-center">
+                        <div className="bg-white p-8 md:p-12 relative overflow-hidden polished-card h-full flex flex-col justify-center">
                             
                             <h3 className="text-3xl lg:text-5xl font-bold text-slate-900 font-heading mb-8 uppercase tracking-tighter">The Journey</h3>
                             <div className="space-y-6 text-slate-700 font-medium leading-relaxed text-lg">
@@ -64,7 +64,7 @@ const About = () => {
                                     <span className="text-5xl font-bold float-left mr-3 -mt-2 text-slate-900 font-heading">M</span>y frontend journey started with a deep curiosity for how users interact with digital spaces. I realized early on that incredible design loses its impact if the engineering behind it is slow or inaccessible.
                                 </p>
                                 <p>
-                                    Today, my focus is laser-sharp: <strong className="text-slate-900 border-b border-slate-900">React ecosystems, micro-interactions, and enterprise-grade performance.</strong> I love transforming complex data systems into intuitive, accessible dashboards and captivating landing pages.
+                                    Today, my focus is laser-sharp: <strong className="text-slate-900 border-b border-slate-300">React ecosystems, micro-interactions, and enterprise-grade performance.</strong> I love transforming complex data systems into intuitive, accessible dashboards and captivating landing pages.
                                 </p>
                                 <p>
                                     When I'm not optimizing component renders, I'm analyzing top-tier SaaS interfaces or contributing to modern UI design systems.
@@ -108,7 +108,7 @@ const About = () => {
                         ].map((item, idx) => (
                             <motion.div
                                 key={idx}
-                                className={`p-8 bg-white editorial-border hover:bg-slate-900 hover:text-white transition-colors duration-300 group flex flex-col justify-between ${idx === 2 ? 'md:col-span-2' : ''}`}
+                                className={`p-8 bg-white polished-card hover:bg-slate-900 hover:text-white transition-all duration-500 ease-out group flex flex-col justify-between ${idx === 2 ? 'md:col-span-2' : ''}`}
                             >
                                 <div className={`mb-8 opacity-80 group-hover:opacity-100 group-hover:text-white transition-colors`}>
                                     <item.icon size={32} strokeWidth={1.5} />
